@@ -1,0 +1,16 @@
+.jumbotron {
+    position: relative;
+    text-align: center;
+    background-color: rgb(82, 61, 34);
+    color: rgb(236, 187, 127);
+    /* font-size: 100%; */
+    font-family: fantasy;
+    text-shadow: rgb(58, 57, 57) 0.3em 0.3em 0.3em;
+    margin-bottom: 0px;
+    height: 100%;
+    
+}
+
+h1{
+
+}
