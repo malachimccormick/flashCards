@@ -18,27 +18,21 @@ MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcar
 })
 
 app.get('/',(req,res)=>{
-    // let curser= db.collection('flashcards').toFind().toArray(function(err,results){
-    //     error(err)
-    //     console.log(results)
+    let curser= db.collection('flashcards').find().toArray(function(err,results){
+        error(err)
+        object=results
+        console.log(results)
+        console.log(object.toArray)
         res.render('index.pug')
-    // })
-})
-app.get('/addCard', (req, res) => {
-    // let curser= db.collection('flashcards').toFind().toArray(function(err,results){
-    //     error(err)
-    //     console.log(results)
-    res.render('addCard',{
-        
     })
-    // })
 })
-app.post('/flashCards', (req,res)=>{
-    // db.collection('flashcards').save(req.body,(err,result)=>{
-    // error(err)
-    // console.log('saved to database :)')
+
+app.post('/addcard', (req,res)=>{
+    db.collection('flashcards').save(req.body,(err,result)=>{
+    error(err)
+    console.log('saved to database :)')
     res.redirect('/')
-    // })
+    })
 })
 function error(err){
 if(err) return console.log(err)

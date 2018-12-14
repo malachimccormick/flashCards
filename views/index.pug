@@ -12,12 +12,12 @@ html(lang="en")
     h3#contentAdded
     #modal.modal 
         #modalContent
-            form(action="/quotes" method="POST")
+            form(action="/addcard" method="POST")
                 input(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input(type="text" placeholder="answer" name="answer")
-            button#submit(type="submit") Submit
-            button#cancel(type="cancel") Cancel
+                button#submit(type="submit") Submit
+                button#cancel(type="cancel") Cancel
     #cardHolder
         #cardQuestion
             img#questionHead(src="/images/question_header.jpeg", alt="")
