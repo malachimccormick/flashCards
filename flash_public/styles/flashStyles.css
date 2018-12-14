@@ -4,7 +4,7 @@ html, body{
     background-color:#e2e2e2;
     
     
-    height: 100%;
+    height:100%;
 }
 .jumbotron {
     display: flex;
@@ -20,6 +20,16 @@ html, body{
 }
 h1{
     margin-top: -20px;
+}
+#contentAdded{
+    margin-left: 15px;
+    font-family: fantasy;
+}
+.hintShow{
+    display: none;
+}
+.hint:hover{
+    cursor: pointer;
 }
 
 
@@ -38,6 +48,7 @@ h1{
     border-radius: 5%;
     color: whitesmoke;
     box-shadow: black .3em .3em .3em;
+    margin-top: -50px;
 }
 #cardAnswer {
     display:none ;
@@ -48,6 +59,7 @@ h1{
     border-radius: 5%;
     color: #234160;
     box-shadow: black .3em .3em .3em;
+    margin-top: -50px;
 }
 #questionHead{
     width: 100%;
@@ -73,7 +85,7 @@ h1{
     border-radius: 10%;
     margin-top: 40px;
 }
-#enter :hover{
+#enter:hover{
     background-color: rgb(60, 60, 209);
 }
 #back{
@@ -88,4 +100,67 @@ h1{
     font-size: 14pt;
     border-radius: 10%;
     margin-top: 40px;
+}
+#addNew{
+    position: relative;
+    margin-top: 5%;
+    margin-right: 40px;
+    float: right;
+    font-size: 15pt;
+
+}
+#addNew:hover{
+    background-color: yellow;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+#modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100px; 
+    height: 50%;
+    margin: 1em;
+}
+form{
+    display: inline-grid;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 15%;
+}
+input{
+    font-size: 14pt;
+}
+#middle{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+#submit{
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 12pt;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: black 0.1em 0.1em 0.1em;
+}
+#cancel{
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 12pt;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: black 0.1em 0.1em 0.1em;
 }
