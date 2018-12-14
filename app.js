@@ -9,9 +9,9 @@ app.set('view engine', 'pug')
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + '/flash_public/'))
 
-MongoClient.connect('mongodb://Sandbox:Sandbox1@ds155130.mlab.com:55130/mqoutes', (err, database)=>{
+MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards', (err, database) => {
     error(err)
-    db = database.db('mqoutes')
+    db = database.db('flashcards')
     app.listen(3000, function(){
         console.log("listening on port 3000")
     })
@@ -22,6 +22,15 @@ app.get('/',(req,res)=>{
     //     error(err)
     //     console.log(results)
         res.render('index.pug')
+    // })
+})
+app.get('/addCard', (req, res) => {
+    // let curser= db.collection('flashcards').toFind().toArray(function(err,results){
+    //     error(err)
+    //     console.log(results)
+    res.render('addCard',{
+        
+    })
     // })
 })
 app.post('/flashCards', (req,res)=>{

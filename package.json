@@ -1,7 +1,6 @@
 {
   "name": "flashCards",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +14,15 @@
     "mongodb": "^3.1.10",
     "nodemon": "^1.18.8",
     "pug": "^2.0.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malachimccormick/flashCards.git"
+  },
+  "bugs": {
+    "url": "https://github.com/malachimccormick/flashCards/issues"
+  },
+  "homepage": "https://github.com/malachimccormick/flashCards#readme",
+  "description": ""
 }
