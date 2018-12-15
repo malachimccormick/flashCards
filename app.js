@@ -20,9 +20,9 @@ MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcar
 app.get('/',(req,res)=>{
     let curser= db.collection('flashcards').find().toArray(function(err,results){
         error(err)
-        object=results
         console.log(results)
-        console.log(object.toArray)
+       
+        console.log("hi")
         res.render('index.pug')
     })
 })
