@@ -1,3 +1,6 @@
+
+let card = 0
+// $('.modal').hide(-300)
 $('#enter').click(function(){
     $('#cardQuestion').slideUp(-100)
     $('#cardAnswer').slideDown(250)
@@ -6,14 +9,22 @@ $('#back').click(function(){
     $('#cardAnswer').slideUp(-100)
     $('#cardQuestion').slideDown(250)
 })
+$('#next').click(function(){
+    $('#cardAnswer').slideUp(-100)
+    $('#cardQuestion').slideDown(250)
+
+
+})
 $('#addNew').click(function(){
     $('.modal').show()
     $('#addNew').hide()
 })
 $('#submit').click(function(){
+    card ++
     $('#addNew').show()
     $('.modal').hide()
-    $('#contentAdded').html('You added ' + ' cards')
+    $('#contentAdded').show().html('You added ' + card + ' cards')
+    document.getElementById('contentAdded')
 })
 $('#cancel').click(function(){
     $('.modal').hide()
@@ -23,3 +34,11 @@ $('.hint').click(function(){
     $('.hint').hide(-100)
     $('.hintShow').show()
 })
+
+
+// $.ajax({
+//      url: "mongodb: //Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards",
+//          success: function (data) {
+//              console.log(data)
+//          }
+// })

@@ -9,20 +9,21 @@ html(lang="en")
         <link rel="icon" type="image" href="/images/title_logo.jpeg" />
     body
     include includes/header.pug
-    h3#contentAdded
+    h3#contentAdded ggh
     #modal.modal 
         #modalContent
+            p#addMore Add a new card
             form(action="/addcard" method="POST")
-                input(type="text" placeholder="question" name="question")
+                input#top(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
-                input(type="text" placeholder="answer" name="answer")
+                input#bottom(type="text" placeholder="answer" name="answer")
                 button#submit(type="submit") Submit
                 button#cancel(type="cancel") Cancel
     #cardHolder
         #cardQuestion
             img#questionHead(src="/images/question_header.jpeg", alt="")
             #dataHolder
-                h2.question(name="question") The question
+                h2=question
                 h3.hint(name="hint") Want A Hint?
                 h3.hintShow(name="hint") This is the hint
                 button#enter enter
@@ -35,8 +36,8 @@ html(lang="en")
     button#addNew Add New 
 script(src='https://code.jquery.com/jquery-3.3.1.js' integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=' crossorigin='anonymous')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous')
-script(src="/scripts/flashScripts.js")
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy' crossorigin='anonymous')
+script(src="/scripts/flashScripts.js")
 
         //- ul(class='quotes')
         //- each quote in quotes
