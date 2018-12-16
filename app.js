@@ -21,9 +21,11 @@ app.get('/',(req,res)=>{
     let curser= db.collection('flashcards').find().toArray(function(err,results){
         error(err)
         console.log(results)
-       
-        console.log("hi")
-        res.render('index.pug')
+        // curser.each()
+        results.toString()
+        console.log({question:results})
+        res.render('index.pug',{question:results})
+        
     })
 })
 

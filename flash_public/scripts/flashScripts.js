@@ -34,3 +34,11 @@ $('.hint').click(function(){
     $('.hint').hide(-100)
     $('.hintShow').show()
 })
+
+
+// $.ajax({
+//      url: "mongodb: //Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards",
+//          success: function (data) {
+//              console.log(data)
+//          }
+// })
