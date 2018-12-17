@@ -34,11 +34,6 @@ $('.hint').click(function(){
     $('.hint').hide(-100)
     $('.hintShow').show()
 })
+test = `${test}`
 
-
-// $.ajax({
-//      url: "mongodb: //Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards",
-//          success: function (data) {
-//              console.log(data)
-//          }
-// })
+console.log(test)

@@ -17,16 +17,16 @@ MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcar
     })
 })
 app.get('/',(req,res)=>{
-    array=[]
+    let array;
     let curser= db.collection('flashcards').find().toArray(function(err,results){
         error(err)
-        console.log(results)
         results.forEach(function(doc, err){
             error(err)
             array=doc
             console.log(array.question)
         })
-        res.render('index', {question:array.question})
+        res.render('index', {test : array})
+        
     })
 })
 app.post('/addcard', (req,res)=>{
