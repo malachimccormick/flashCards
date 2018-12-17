@@ -9,7 +9,7 @@ html(lang="en")
         <link rel="icon" type="image" href="/images/title_logo.jpeg" />
     body
     include includes/header.pug
-    h3#contentAdded ggh
+    h3#contentAdded added card
     #modal.modal 
         #modalContent
             p#addMore Add a new card
@@ -22,15 +22,15 @@ html(lang="en")
     #cardHolder
         #cardQuestion
             img#questionHead(src="/images/question_header.jpeg", alt="")
-            #dataHolder
-                h2=question
+            .question
+                h2 #{question.question}
                 h3.hint(name="hint") Want A Hint?
                 h3.hintShow(name="hint") This is the hint
                 button#enter enter
         #cardAnswer
             img#answerHead(src="/images/answer_header.png", alt="")
             #dataHolder
-                h2.answer(name="answer") the Answer
+                h2.ans(name="answer") the Answer
                 button#back Question
                 button#next Next
     button#addNew Add New 

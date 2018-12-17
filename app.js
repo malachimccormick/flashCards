@@ -16,19 +16,19 @@ MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcar
         console.log("listening on port 3000")
     })
 })
-
 app.get('/',(req,res)=>{
+    array=[]
     let curser= db.collection('flashcards').find().toArray(function(err,results){
         error(err)
         console.log(results)
-        // curser.each()
-        results.toString()
-        console.log({question:results})
-        res.render('index.pug',{question:results})
-        
+        results.forEach(function(doc, err){
+            error(err)
+            array=doc
+            console.log(array.question)
+        })
+        res.render('index', {question:array.question})
     })
 })
-
 app.post('/addcard', (req,res)=>{
     db.collection('flashcards').save(req.body,(err,result)=>{
     error(err)
