@@ -1,5 +1,6 @@
 script.
-    test=('#{test}')
+    flash=('#{flash}')
+    console.log(flash)
 doctype html
 html(lang="en")
     head
@@ -25,14 +26,14 @@ html(lang="en")
         #cardQuestion
             img#questionHead(src="/images/question_header.jpeg", alt="")
             #question
-                h2.question(name="question") This is the question
-                h3.hint(name="hint") Want A Hint?
-                h3.hintShow(name="hintShow") This is the hint
+                h2.question(name="question") loading... 
+                h3.hint(name="hint") Want a hint?
+                h3.hintShow(name="hintShow") 
                 button#enter enter
         #cardAnswer
             img#answerHead(src="/images/answer_header.png", alt="")
             #answer
-                h2.answer(name="answer") the Answer
+                h2.answer(name="answer") 
                 button#back Question
                 button#next Next
     button#addNew Add New 
