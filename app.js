@@ -16,19 +16,28 @@ MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcar
         console.log("listening on port 3000")
     })
 })
-
+let flash;
+let array;
 app.get('/',(req,res)=>{
+    
     let curser= db.collection('flashcards').find().toArray(function(err,results){
         error(err)
-        console.log(results)
-        // curser.each()
-        results.toString()
-        console.log({question:results})
-        res.render('index.pug',{question:results})
-        
-    })
+        flash= results
+        // results.forEach(function(doc, err){
+        //     error(err)
+        //     array=doc
+        //     console.log(array.question) //get all the questions because of for each
+        res.render('index')
+        })
+        //  console.log(array.question)//get the last question in the array
+        // res.render('index') //, {flash: array}
+        //console.log()
+      
+    }
+)
+app.get('/addcard',(req,res)=>{
+    res.send(flash)
 })
-
 app.post('/addcard', (req,res)=>{
     db.collection('flashcards').save(req.body,(err,result)=>{
     error(err)

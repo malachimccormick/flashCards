@@ -67,10 +67,16 @@ h1{
     border-radius: 16px;
     border-bottom: solid 2px black;
 }
-#dataHolder{
+#question{
     text-align: center;
     height: 50%;
     margin-top: 15%;
+}
+#answer{
+        text-align: center;
+        height: 50%;
+        margin-top: 15%;
+    
 }
 #enter{
     background-color: grey;
