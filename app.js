@@ -23,16 +23,9 @@ app.get('/',(req,res)=>{
     let curser= db.collection('flashcards').find().toArray(function(err,results){
         error(err)
         flash= results
-        // results.forEach(function(doc, err){
-        //     error(err)
-        //     array=doc
-        //     console.log(array.question) //get all the questions because of for each
+        
         res.render('index')
-        })
-        //  console.log(array.question)//get the last question in the array
-        // res.render('index') //, {flash: array}
-        //console.log()
-      
+        }) 
     }
 )
 app.get('/addcard',(req,res)=>{

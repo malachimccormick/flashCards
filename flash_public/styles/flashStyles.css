@@ -18,10 +18,7 @@ html, body{
 h1{
     margin-top: -20px;
 }
-#contentAdded{
-    margin-left: 15px;
-    font-family: fantasy;
-}
+
 .hintShow{
     display: none;
 }
@@ -37,7 +34,7 @@ h1{
 #cardQuestion{
     justify-content: center;
     background-color:#234160;
-    width:25%;
+    width:30%;
     height:155%;
     border-radius: 5%;
     color: whitesmoke;
@@ -48,7 +45,7 @@ h1{
     display:none ;
     justify-content: center;
     background-color: #78909c;
-    width: 25%;
+    width: 30%;
     height: 155%;
     border-radius: 5%;
     color: #234160;
@@ -71,6 +68,7 @@ h1{
     text-align: center;
     height: 50%;
     margin-top: 15%;
+    overflow: visible;
 }
 #answer{
         text-align: center;
