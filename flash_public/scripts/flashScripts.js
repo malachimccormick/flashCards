@@ -1,10 +1,9 @@
-
-    flashData()
-
+//Data is loaded when the page is loaded
+flashData()
+//All buttons start here
 $('#enter').click(function(){
     $('#cardQuestion').slideUp(-100)
         $('#cardAnswer').slideDown(250)
-    
 })
 
 $('#back').click(function(){
@@ -17,8 +16,7 @@ $('#next').click(function(){
         $('#cardQuestion').slideDown(250)
             $('.hintShow').hide()
                 $('.hint').show()
-    
-              flashData()
+              flashData()//function to get the data called here
 })
 
 $('#addNew').click(function(){
@@ -41,28 +39,24 @@ $('.hint').click(function(data){
     $('.hint').hide(-100)
         $('.hintShow').show()
 })
-
+//The function that gets the data and places it in the proper location
+let i;//i is used to iterate through the data
 function flashData(){
    $.ajax({
        type: 'GET',
        url: '/addcard',
        success: function (data) {
            console.log(data)
-           placeInfo(data)
+           //i is randomized to make the questions random but not needed.
+           //the questions can just go in order
+           i = Math.floor(Math.random() * data.length)
+               $('.question').html(data[i].question);
+               $('.hintShow').html(data[i].hint)
+               $('.answer').html(data[i].answer)
        },
        error: function (err) {
            console.log(err)
        }
-   });
+   })
 }
-let i;
-function placeInfo(data){
-    i = Math.floor(Math.random() * 15)
-    console.log(i)
-    if(i >data.length){
-        i=0
-        } ; 
-    $('.question').html(data[i].question);
-        $('.hintShow').html(data[i].hint)
-            $('.answer').html(data[i].answer)  
-}
+
