@@ -1,4 +1,3 @@
-
 doctype html
 html(lang="en")
     head
@@ -18,18 +17,18 @@ html(lang="en")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
                 button#submit(type="submit") Submit
-                button#cancel(type="cancel") Cancel
+            button#cancel(type="cancel") Cancel
     #cardHolder
         #cardQuestion
             img#questionHead(src="/images/question_header.jpeg", alt="")
-            #question
+            #questionHolder
                 h2.question(name="question") loading... 
-                h3.hint(name="hint") Want a hint?
+                h3.hint(name="hint") Want a hint? Click Me
                 h3.hintShow(name="hintShow") 
-                button#enter enter
+                button#enter Answer
         #cardAnswer
             img#answerHead(src="/images/answer_header.png", alt="")
-            #answer
+            #answerHolder
                 h2.answer(name="answer") 
                 button#back Question
                 button#next Next
