@@ -1,12 +1,14 @@
 const express=require('express');
-const bodyParser=require('body-parser')
+const bodyParser=require('body-parser')//needed to receive post requests
 const MongoClient=require('mongodb').MongoClient
 const app=express()
 
+let ObjectId=require('mongodb').ObjectID;
 let db;
 let flash;
 
 app.set('view engine', 'pug')
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + '/flash_public/'))
 
@@ -23,12 +25,9 @@ app.get('/',(req,res)=>{
         error(err)
             flash= results
         res.render('index')
-        }) 
+    }) 
+    
     })
-
-app.get('/addcard',(req,res)=>{
-    res.send(flash)
-})
 
 app.post('/addcard', (req,res)=>{
     db.collection('flashcards').save(req.body,(err,result)=>{
@@ -36,6 +35,28 @@ app.post('/addcard', (req,res)=>{
         console.log('saved to database :)')
     res.redirect('/')
     })
+})
+
+app.get('/addcard', (req, res) => {
+    res.send(flash)
+})
+app.put('/editcard/:id',(req,res, next)=>{
+    let id = {
+        _id: ObjectID(req.params.id)
+    }
+    db.collection('flashcards').update({_id:id}),
+    error()
+    res.redirect('/')
+})
+app.delete('/addcard/:id', (req, res, next) => {
+    let id = {
+        _id: ObjectID(req.params.id)
+    }
+    db.collection('flashcards').update({
+            _id: id
+        }),
+        error()
+        res.redirect('/')
 })
 
 function error(err){
