@@ -17,7 +17,25 @@ html(lang="en")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
                 button#submit(type="submit") Submit
-            button#cancel(type="cancel") Cancel
+            button.cancel(type="cancel") Cancel
+            button#edit(type="edit") Edit
+            button#delete(type="delete") Delete
+        #modalPutContent
+            p#addMore Edit a card
+            form#formPut(action="/addcard/" method="put")
+                input#top(type="text" placeholder="question" name="question")
+                input#middle(type="text" placeholder="hint" name="hint")
+                input#bottom(type="text" placeholder="answer" name="answer")
+                button#submit(type="submit") Submit
+            button.cancel(type="cancel") Cancel   
+        #modalDeleteContent
+            p#addMore Delete a card
+            form(action="/addcard" method="put")
+                input#top(type="text" placeholder="question" name="question")
+                input#middle(type="text" placeholder="hint" name="hint")
+                input#bottom(type="text" placeholder="answer" name="answer")
+                button#submit(type="submit") Submit
+            button.cancel(type="cancel") Cancel     
     #cardHolder
         #cardQuestion
             img#questionHead(src="/images/question_header.jpeg", alt="")

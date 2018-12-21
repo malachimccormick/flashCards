@@ -183,6 +183,30 @@ background-color: rgb(60, 60, 209);
     width: 300px; 
     height: 50%;
 }
+#modalPutContent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #fefefe;
+    margin: 12% auto;
+    padding: 20px;
+    border: 4px double black;
+    width: 300px;
+    height: 50%;
+}
+#modalDeleteContent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #fefefe;
+    margin: 12% auto;
+    padding: 20px;
+    border: 4px double black;
+    width: 300px;
+    height: 50%;
+}
 #addMore{
     font-size: 20pt;
     font-weight: bold;
@@ -203,17 +227,40 @@ input{
     margin-bottom: 5px;
 }
 #submit{
+    width: 70px;
+    justify-content: center;
     display: flex;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 12pt;
     font-family:Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
-#cancel{
-    display: flex;
+#edit {
+    width: 70px;
+    justify-content: center;
+    /* margin: auto; */
+    margin-top: 10px;
+    font-size: 12pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: black 0.1em 0.1em 0.1em;
+}
+#delete {
+    margin-left: 75%;
+    width: 70px;
+    justify-content: center;
+    /* margin: auto; */
+    margin-top: -24px;
+    font-size: 12pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: black 0.1em 0.1em 0.1em;
+}
+
+.cancel{
+    width: 70px;
+    justify-content: center;
     margin: auto;
-    margin-top: -10px;
+    margin-top: -50px;
     font-size: 12pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
