@@ -2,7 +2,7 @@ const express=require('express');
 const bodyParser=require('body-parser')//needed to receive post requests
 const app=express()
 const MongoClient=require('mongodb').MongoClient
-const ObjectId = require('mongodb').ObjectID
+const ObjectId = require('mongodb').ObjectID//important for update and delete by id
 
 
 let db;
@@ -13,6 +13,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + '/flash_public/'))
 
+//conect to mlab, mongodb
 MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards',{ useNewUrlParser: true }, (err, database) => {
     error(err)
         db = database.db('flashcards')
@@ -34,7 +35,7 @@ app.get('/addcard', (req, res) => {
     res.send(flash)
     
 })
-//creats new card
+//used to create a new card
 app.post('/addcard', (req, res) => {
     
     db.collection('flashcards').insertOne(req.body, (err, result) => {
@@ -50,7 +51,7 @@ app.post('/addcard', (req, res) => {
     //     res.redirect('/')
     // })
 })
-
+//used to update the post. There are other methods
 app.post('/update', (req, res) => {
      let newCard = {
         question: req.body.question,
@@ -63,6 +64,7 @@ app.post('/update', (req, res) => {
             res.redirect('/')
     })
 })
+//used to delete a post
 app.post('/delete', (req, res) => {
     let id =req.body.id
         db.collection('flashcards').deleteOne({_id:ObjectId(id)}, (err, result) => {

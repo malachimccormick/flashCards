@@ -53,25 +53,22 @@ $('.hint').click(function(data){
         $('.hintShow').show()
 })
 //The function that gets the data and places it in the proper location
-let i;//i is used to iterate through the data
+//i is used to iterate through the data
+let i;
 let id;
 function flashData(){
    $.ajax({
        type: 'GET',
        url: '/addcard',
        success: function (data) {
-           console.log(data)
            //i is randomized with math.random to make the questions random but not needed.
            //the questions can just go in order if you remove math.random and increment i
-           i = Math.floor(Math.random() * data.length)
-               $('.question').html(data[i].question);
-               $('.hintShow').html(data[i].hint)
-               $('.answer').html(data[i].answer)
-               id = data[i]._id
+            i = Math.floor(Math.random() * data.length)
+                $('.question').html(data[i].question);
+                    $('.hintShow').html(data[i].hint)
+                        $('.answer').html(data[i].answer)
+                    id = data[i]._id
                $('.id').val(id)
-            
-               console.log(id)
-
             },
             error: function (err) {
                 console.log(err)
