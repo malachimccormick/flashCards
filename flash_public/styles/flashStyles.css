@@ -219,12 +219,9 @@ input{
     font-size: 14pt;
     margin-top: 5px
 }
-#top{
-    margin-top: -30px;
-}
+
 #middle{
     margin-top: 5px;
-    margin-bottom: 5px;
 }
 #submit{
     width: 70px;
@@ -255,7 +252,9 @@ input{
     font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
-
+#deleteText{
+    color: red;
+}
 .cancel{
     width: 70px;
     justify-content: center;
