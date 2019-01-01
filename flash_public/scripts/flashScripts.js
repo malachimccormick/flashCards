@@ -1,5 +1,8 @@
 //Data is loaded when the page is loaded
-flashData()
+$(document).ready(function()
+    {flashData()
+        })
+
 //All buttons start here
 $('#enter').click(function(){
     $('#cardQuestion').slideUp(-100)
