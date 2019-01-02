@@ -1,9 +1,11 @@
-
-html, body{
+/* Hi */
+html,
+body {
     display: block;
-    background-color:#e2e2e2;
-    height:100%;
+    background-color: #e2e2e2;
+    height: 100%;
 }
+
 /* The jumbotron is here */
 .jumbotron {
     display: flex;
@@ -14,19 +16,22 @@ html, body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 30pt;
     text-shadow: black 0.1em 0.1em 0.1em;
-    height: 160px; 
+    height: 160px;
 }
-h1{
-    margin-top:-5%;
+
+h1 {
+    margin-top: -5%;
 }
+
 @media only screen and (max-width: 600px) {
-    h1{
+    h1 {
         margin: auto;
-        margin-top:15%;
-        font-size:40pt;
+        margin-top: 15%;
+        font-size: 40pt;
     }
-  
+
 }
+
 @media only screen and (max-width: 339px) {
     h1 {
         margin: auto;
@@ -35,6 +40,7 @@ h1{
     }
 
 }
+
 /* makes the jumbotron text flash */
 /* h1 {
     animation: blinkingText 1.0s 3;
@@ -48,12 +54,13 @@ h1{
     100% {color: white;}
 } */
 /* Holds the cards, both question and answer */
-#cardHolder{
+#cardHolder {
     display: flex;
     justify-content: center;
     margin-top: 70px;
     height: 300px;
 }
+
 /* The question card is here */
 #questionHolder {
     text-align: center;
@@ -61,16 +68,17 @@ h1{
     margin-top: 15%;
 }
 
-#cardQuestion{
+#cardQuestion {
     justify-content: center;
-    background-color:#234160;
-    width:27%;
-    height:170%;
+    background-color: #234160;
+    width: 27%;
+    height: 170%;
     border-radius: 5%;
     color: whitesmoke;
     box-shadow: black .3em .3em .3em;
     margin-top: -50px;
 }
+
 .hintShow {
     display: none;
 }
@@ -97,6 +105,7 @@ h1{
 #enter:hover {
     background-color: rgb(60, 60, 209);
 }
+
 /* The answer card starts here */
 #answerHolder {
     text-align: center;
@@ -105,7 +114,7 @@ h1{
 }
 
 #cardAnswer {
-    display:none ;
+    display: none;
     justify-content: center;
     background-color: #78909c;
     width: 27%;
@@ -116,14 +125,14 @@ h1{
     margin-top: -50px;
 }
 
-#answerHead{
+#answerHead {
     width: 100%;
     height: 25%;
     border-radius: 16px;
     border-bottom: solid 2px black;
 }
 
-#back{
+#back {
     background-color: grey;
     font-size: 14pt;
     border-radius: 10%;
@@ -131,21 +140,25 @@ h1{
     margin-right: 40px;
     box-shadow: black .3em .3em .3em;
 }
-#back:hover{
-background-color: rgb(60, 60, 209);
+
+#back:hover {
+    background-color: rgb(60, 60, 209);
 }
-#next{
+
+#next {
     background-color: grey;
     font-size: 14pt;
     border-radius: 10%;
     margin-top: 40px;
     box-shadow: black .3em .3em .3em;
 }
-#next:hover{
-background-color: rgb(60, 60, 209);
+
+#next:hover {
+    background-color: rgb(60, 60, 209);
 }
+
 /* The add new button is here */
-#addNew{
+#addNew {
     position: relative;
     margin-top: 5%;
     margin-right: 40px;
@@ -154,35 +167,39 @@ background-color: rgb(60, 60, 209);
     box-shadow: black .3em .3em .3em;
     border-radius: 10%;
 }
-#addNew:hover{
+
+#addNew:hover {
     background-color: yellow;
 }
+
 /* The modal starts here */
 .modal {
     justify-content: center;
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
 #modalContent {
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     background-color: #fefefe;
-    margin: 12% auto; 
+    margin: 12% auto;
     padding: 20px;
     border: 4px double black;
-    width: 300px; 
+    width: 300px;
     height: 50%;
 }
+
 #modalPutContent {
     display: flex;
     flex-direction: column;
@@ -195,6 +212,7 @@ background-color: rgb(60, 60, 209);
     width: 300px;
     height: 50%;
 }
+
 #modalDeleteContent {
     display: flex;
     flex-direction: column;
@@ -207,39 +225,46 @@ background-color: rgb(60, 60, 209);
     width: 300px;
     height: 50%;
 }
-.id{
-    display:none;
+
+.id {
+    display: none;
 }
-#addMore{
+
+#addMore {
     font-size: 20pt;
     font-weight: bold;
-    margin-bottom:-15px;
+    margin-bottom: -15px;
 }
-form{
+
+form {
     display: inline-grid;
     margin: 20% auto;
 }
-input{
+
+input {
     font-size: 14pt;
     margin-top: 5px
 }
 
-#middle{
+#middle {
     margin-top: 5px;
 }
-#submitAdd{
+
+#submitAdd {
     width: 70px;
     justify-content: center;
     display: flex;
     margin: auto;
     margin-top: 30px;
     font-size: 12pt;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
+
 #submitAdd:hover {
     background-color: rgb(57, 190, 57);
 }
+
 #submitUpdate {
     width: 70px;
     justify-content: center;
@@ -250,22 +275,26 @@ input{
     font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
+
 #submitUpdate:hover {
     background-color: rgb(233, 229, 32);
 }
-#submitDelete{
+
+#submitDelete {
     width: 70px;
     justify-content: center;
     display: flex;
     margin: auto;
     margin-top: 30px;
     font-size: 12pt;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
-#submitDelete:hover{
-background-color: rgb(247, 77, 77);
+
+#submitDelete:hover {
+    background-color: rgb(247, 77, 77);
 }
+
 #edit {
     width: 70px;
     justify-content: center;
@@ -275,6 +304,7 @@ background-color: rgb(247, 77, 77);
     font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
+
 #delete {
     margin-left: 75%;
     width: 70px;
@@ -285,10 +315,12 @@ background-color: rgb(247, 77, 77);
     font-family: Georgia, 'Times New Roman', Times, serif;
     box-shadow: black 0.1em 0.1em 0.1em;
 }
-#deleteText{
+
+#deleteText {
     color: red;
 }
-.cancel{
+
+.cancel {
     width: 70px;
     justify-content: center;
     margin: auto;
