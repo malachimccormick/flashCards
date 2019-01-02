@@ -1,4 +1,7 @@
 doctype html
+script.
+    id='#{id}'
+    console.log(id)
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -21,19 +24,19 @@ html(lang="en")
             button#edit(type="edit") Edit
             button#delete(type="delete") Delete
         #modalPutContent
-            p#addMore Edit a card
-            form#formPut(action="/addcard/" method="put")
+            p#addMore Edit current card
+            form#formPut(action="/update" method="POST")
+                <input type="text" class="id" name="id" readonly>
                 input#top(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
                 button#submit(type="submit") Submit
             button.cancel(type="cancel") Cancel   
         #modalDeleteContent
-            p#addMore Delete a card
-            form(action="/addcard" method="put")
-                input#top(type="text" placeholder="question" name="question")
-                input#middle(type="text" placeholder="hint" name="hint")
-                input#bottom(type="text" placeholder="answer" name="answer")
+            p#addMore Delete current card
+            form(action="/delete" method="POST")
+                <input type="text" class="id" name="id" readonly>
+                p#deleteText Are you sure? This cannot be undone!
                 button#submit(type="submit") Submit
             button.cancel(type="cancel") Cancel     
     #cardHolder

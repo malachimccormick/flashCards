@@ -37,11 +37,6 @@ $('#delete').click(function () {
         $('#modalDeleteContent').show()
 })
 
-$('#submitPut').click(function(){
-    $('#addNew').show()
-        $('.modal').hide()
-
-})
 $('#submit').click(function () {
     $('#addNew').show()
     $('.modal').hide()
@@ -66,54 +61,22 @@ function flashData(){
        url: '/addcard',
        success: function (data) {
            console.log(data)
-           //i is randomized to make the questions random but not needed.
-           //the questions can just go in order
+           //i is randomized with math.random to make the questions random but not needed.
+           //the questions can just go in order if you remove math.random and increment i
            i = Math.floor(Math.random() * data.length)
                $('.question').html(data[i].question);
                $('.hintShow').html(data[i].hint)
                $('.answer').html(data[i].answer)
                id = data[i]._id
-               
+               $('.id').val(id)
+            
                console.log(id)
+
             },
             error: function (err) {
                 console.log(err)
             }
         })
     }
-    function flashDataPut(id) {
-        $.ajax({
-            type: 'put',
-            url: '/addcard/'+id,
-            success: function (data) {
-            console.log(data)
-            //i is randomized to make the questions random but not needed.
-            //the questions can just go in order
-            i = Math.floor(Math.random() * data.length)
-            $('.question').html(data[i].question);
-            $('.hintShow').html(data[i].hint)
-            $('.answer').html(data[i].answer)
-        },
-        error: function (err) {
-            console.log(err)
-        }
-    })
-}
-function flashDataDelete(id) {
-    $.ajax({
-        type: 'delete',
-        url: '/addcard/'+id,
-        success: function (data) {
-            console.log(data)
-            //i is randomized to make the questions random but not needed.
-            //the questions can just go in order
-            i = Math.floor(Math.random() * data.length)
-            $('.question').html(data[i].question);
-            $('.hintShow').html(data[i].hint)
-            $('.answer').html(data[i].answer)
-        },
-        error: function (err) {
-            console.log(err)
-        }
-    })
-}
+    
+
