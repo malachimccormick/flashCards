@@ -37,11 +37,14 @@ $('#delete').click(function () {
         $('#modalDeleteContent').show()
 })
 
+<<<<<<< HEAD
 $('#submitPut').click(function(){
     $('#addNew').show()
         $('.modal').hide()
         flashDataPut()
 })
+=======
+>>>>>>> 95ffcf8d2550a942da1beb0a514511d13ea54d2c
 $('#submit').click(function () {
     $('#addNew').show()
         $('.modal').hide()
@@ -67,21 +70,32 @@ function flashData(){
        url: '/addcard',
        success: function (data) {
            console.log(data)
-           //i is randomized to make the questions random but not needed.
-           //the questions can just go in order
+           //i is randomized with math.random to make the questions random but not needed.
+           //the questions can just go in order if you remove math.random and increment i
            i = Math.floor(Math.random() * data.length)
+<<<<<<< HEAD
                 $('.question').html(data[i].question);
                 $('.hintShow').html(data[i].hint)
                 $('.answer').html(data[i].answer)
                 id = data[i]._id
                 
+=======
+               $('.question').html(data[i].question);
+               $('.hintShow').html(data[i].hint)
+               $('.answer').html(data[i].answer)
+               id = data[i]._id
+               $('.id').val(id)
+            
+>>>>>>> 95ffcf8d2550a942da1beb0a514511d13ea54d2c
                console.log(id)
+
             },
             error: function (err) {
                 console.log(err)
             }
         })
     }
+<<<<<<< HEAD
     console.log(i)
    
     function flashDataPut(id) {
@@ -121,3 +135,7 @@ function flashDataDelete(id) {
         }
     })
 }
+=======
+    
+
+>>>>>>> 95ffcf8d2550a942da1beb0a514511d13ea54d2c
