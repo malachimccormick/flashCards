@@ -19,7 +19,7 @@ $('#next').click(function(){
         $('#cardQuestion').slideDown(250)
             $('.hintShow').hide()
                 $('.hint').show()
-              flashData()//function to get the data called here
+              flashData()//function to get the data called here when you click the button
 })
 
 $('#addNew').click(function(){

@@ -42,16 +42,16 @@ app.post('/addcard', (req, res) => {
         error(err)
         res.redirect('/')
     })
-    //i messed up and had an id with a value of null. 
+    //I messed up and had an id with a value of null and could not get to it. 
     //I used .remove to erase it and left it here incase it is needed again
     // db.collection('flashcards').remove({_id:null}, (err, result) => {
     //     error(err)
     //     console.log(req.body)
-    //     console.log('updated database :)' + result)
+    //     console.log('item deleted from database :)' + result)
     //     res.redirect('/')
     // })
 })
-//used to update the post. There are other methods
+//used to update the database. There are other methods .replace, .updateMany
 app.post('/update', (req, res) => {
      let newCard = {
         question: req.body.question,
