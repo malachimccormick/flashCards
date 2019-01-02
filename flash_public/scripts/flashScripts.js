@@ -8,7 +8,7 @@ $('#enter').click(function(){
     $('#cardQuestion').slideUp(-100)
         $('#cardAnswer').slideDown(250)
 })
-
+//this is the back button
 $('#back').click(function(){
     $('#cardAnswer').slideUp(-100)
         $('#cardQuestion').slideDown(250)
