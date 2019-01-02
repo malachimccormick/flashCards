@@ -32,7 +32,7 @@ app.get('/',(req,res)=>{
 app.post('/addcard', (req,res)=>{
     db.collection('flashcards').save(req.body,(err,result)=>{
         error(err)
-        console.log('saved to database :)')
+        console.log(req)
     res.redirect('/')
     })
 })
@@ -40,15 +40,18 @@ app.post('/addcard', (req,res)=>{
 app.get('/addcard', (req, res) => {
     res.send(flash)
 })
-app.put('/editcard/:id',(req,res, next)=>{
-    let id = {
-        _id: ObjectID(req.params.id)
-    }
-    db.collection('flashcards').update({_id:id}),
-    error()
-    res.redirect('/')
+app.put('/changecard', (req,res)=>{
+    db.collection('flashcards').updateOne(req.body,(err,results)=>{
+        error(err)
+            
+        console.log("data changed")
+        res.redirect('/')
+    })
 })
-app.delete('/addcard/:id', (req, res, next) => {
+app.get('/changecard', (req, res) => {
+    res.send(flash)
+})
+app.delete('/deletecard/:id', (req, res, next) => {
     let id = {
         _id: ObjectID(req.params.id)
     }

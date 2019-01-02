@@ -40,11 +40,11 @@ $('#delete').click(function () {
 $('#submitPut').click(function(){
     $('#addNew').show()
         $('.modal').hide()
-
+        flashDataPut()
 })
 $('#submit').click(function () {
     $('#addNew').show()
-    $('.modal').hide()
+        $('.modal').hide()
 
 })
 
@@ -60,6 +60,7 @@ $('.hint').click(function(data){
 //The function that gets the data and places it in the proper location
 let i;//i is used to iterate through the data
 let id;
+
 function flashData(){
    $.ajax({
        type: 'GET',
@@ -69,11 +70,11 @@ function flashData(){
            //i is randomized to make the questions random but not needed.
            //the questions can just go in order
            i = Math.floor(Math.random() * data.length)
-               $('.question').html(data[i].question);
-               $('.hintShow').html(data[i].hint)
-               $('.answer').html(data[i].answer)
-               id = data[i]._id
-               
+                $('.question').html(data[i].question);
+                $('.hintShow').html(data[i].hint)
+                $('.answer').html(data[i].answer)
+                id = data[i]._id
+                
                console.log(id)
             },
             error: function (err) {
@@ -81,9 +82,12 @@ function flashData(){
             }
         })
     }
+    console.log(i)
+   
     function flashDataPut(id) {
         $.ajax({
-            type: 'put',
+            
+            type: 'GET',
             url: '/addcard/'+id,
             success: function (data) {
             console.log(data)

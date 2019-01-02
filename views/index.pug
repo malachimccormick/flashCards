@@ -22,7 +22,7 @@ html(lang="en")
             button#delete(type="delete") Delete
         #modalPutContent
             p#addMore Edit a card
-            form#formPut(action="/addcard/" method="put")
+            form#formPut(action="/changecard" method="PUT")
                 input#top(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
@@ -30,7 +30,7 @@ html(lang="en")
             button.cancel(type="cancel") Cancel   
         #modalDeleteContent
             p#addMore Delete a card
-            form(action="/addcard" method="put")
+            form(action="/deletecard" method="DELETE")
                 input#top(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
