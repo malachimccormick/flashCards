@@ -19,7 +19,7 @@ html(lang="en")
                 input#top(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
-                button#submit(type="submit") Submit
+                button#submitAdd(type="submit") Submit
             button.cancel(type="cancel") Cancel
             button#edit(type="edit") Edit
             button#delete(type="delete") Delete
@@ -30,14 +30,14 @@ html(lang="en")
                 input#top(type="text" placeholder="question" name="question")
                 input#middle(type="text" placeholder="hint" name="hint")
                 input#bottom(type="text" placeholder="answer" name="answer")
-                button#submit(type="submit") Submit
+                button#submitUpdate(type="submit") Submit
             button.cancel(type="cancel") Cancel   
         #modalDeleteContent
             p#addMore Delete current card
             form(action="/delete" method="POST")
                 <input type="text" class="id" name="id" readonly>
                 p#deleteText Are you sure? This cannot be undone!
-                button#submit(type="submit") Submit
+                button#submitDelete(type="submit") Submit
             button.cancel(type="cancel") Cancel     
     #cardHolder
         #cardQuestion
