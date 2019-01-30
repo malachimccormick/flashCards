@@ -1,78 +1,90 @@
 const express=require('express');
 const bodyParser=require('body-parser')//needed to receive post requests
 const app=express()
-const MongoClient=require('mongodb').MongoClient
-const ObjectId = require('mongodb').ObjectID//important for update and delete by id
+var mongoose = require('mongoose');
+let port = 3000
+//conect to mlab, mongodb
+mongoose.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards', { useMongoClient: true })
+//mongoose.connect('mongodb://Sandbox:Sandbox@localhost:27017/mydb',{useMongoClient:true})
+app.listen(port)
+console.log('Listning on port '+port)
+let Schema=mongoose.Schema;
+let flashCardSchema = new Schema({
+    question: {
+        type: String,
+        unique: true,
+        require: true
+    },
+    hint: {
+        type: String,
+        unique: true,
+        require: true
+    },
+    answer: {
+        type: String,
+        unique: true,
+        require: true
+    },
+},{collection:'flashcards'});
+let FlashCard= mongoose.model('FlashCard', flashCardSchema)
 
 
-let db;
-let flash;
 
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + '/flash_public/'))
 
-//conect to mlab, mongodb
-MongoClient.connect('mongodb://Sandbox:Sandbox1@ds053156.mlab.com:53156/flashcards',{ useNewUrlParser: true }, (err, database) => {
-    error(err)
-        db = database.db('flashcards')
-            app.listen(3000, function(){
-        console.log("listening on port 3000")
-        
-    })
-})
+
+
 //reads the data in the database
 app.get('/',(req,res)=>{
-    let curser= db.collection('flashcards').find().toArray(function(err,results){
-        error(err)
-            flash= results
-        res.render('index')
-    }) 
+   res.render('index')
 })
 
 app.get('/addcard', (req, res) => {
-    res.send(flash)
+   
+    FlashCard.find()
+        .then(function (doc){
+            console.log(doc)
+            res.send(doc)
+            
+        })
     
 })
 //used to create a new card
 app.post('/addcard', (req, res) => {
-    
-    db.collection('flashcards').insertOne(req.body, (err, result) => {
-        error(err)
-        res.redirect('/')
-    })
-    //I messed up and had an id with a value of null and could not get to it. 
-    //I used .remove to erase it and left it here incase it is needed again
-    // db.collection('flashcards').remove({_id:null}, (err, result) => {
-    //     error(err)
-    //     console.log(req.body)
-    //     console.log('item deleted from database :)' + result)
-    //     res.redirect('/')
-    // })
+    let newCard = {
+        question: req.body.question,
+        hint: req.body.hint,
+        answer: req.body.answer
+    }
+   let data = new FlashCard(newCard);
+   data.save()
+    res.redirect('/')
 })
 //used to update the database. There are other methods .replace, .updateMany
 app.post('/update', (req, res) => {
-     let newCard = {
-        question: req.body.question,
-        hint: req.body.hint,
-        answer:req.body.answer
-        }
     let id =req.body.id
-    db.collection('flashcards').updateOne({_id:ObjectId(id)},{$set:newCard}, (err, result) => {
-        error(err)
-            res.redirect('/')
-    })
+  FlashCard.findById(id, function(err,doc){
+      if (err){
+          console.log('no entry found')
+      }
+      doc.question = req.body.question
+      doc.hint = req.body.hint
+      doc.answer = req.body.answer
+      doc.save()
+      res.redirect('/')
+  })
 })
 //used to delete a post
 app.post('/delete', (req, res) => {
     let id =req.body.id
-        db.collection('flashcards').deleteOne({_id:ObjectId(id)}, (err, result) => {
-            error(err)
-                res.redirect('/')
-    })
-})            
-    function error(err){
-        if(err) return console.log(err)
-    }
+    FlashCard.findByIdAndRemove(id).exec()
+    res.redirect('/')
+}) 
+
+//     function error(err){
+//         if(err) return console.log(err)
+//     }
                        
